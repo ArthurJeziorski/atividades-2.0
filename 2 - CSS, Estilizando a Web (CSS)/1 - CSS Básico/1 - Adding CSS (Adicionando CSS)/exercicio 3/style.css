@@ -1,0 +1,29 @@
+s#rojo {
+    color: red;
+  }
+  
+  #verde {
+    color: green;
+  }
+  
+  #azul {
+    color: blue;
+  }
+  
+  #amarillo {
+    color: yellow;
+  }
+  
+  #negro {
+    color: black;
+  }
+  
+  h2 {
+    font-weight: normal;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  
