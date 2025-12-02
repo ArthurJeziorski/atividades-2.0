@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mostrar/Esconder</title>
 </head>
 <body>
+    <h1>Mostrar / Esconder Elemento</h1>
 
-    
-    
+    <div id="quadrado" style="width: 200px; height: 200px; background-color: rgb(43, 255, 0);"></div>
+    <br>
+    <button id="btnToggle">Esconder</button>
+
+    <script>
+        const quadrado = document.getElementById('quadrado');
+        const btnToggle = document.getElementById('btnToggle');
+
+        btnToggle.addEventListener('click', function() {
+            if (quadrado.style.display === 'none') {
+                quadrado.style.display = 'block';
+                btnToggle.textContent = 'Esconder';
+            } else {
+                quadrado.style.display = 'none';
+                btnToggle.textContent = 'Mostrar';
+            }
+        });
+    </script>
 </body>
 </html>
