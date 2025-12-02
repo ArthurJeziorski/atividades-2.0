@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt_br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contador Simples</title>
 </head>
 <body>
+    <h1>Contador Simples</h1>
 
-    
-    
+    <p id="valor">0</p>
+
+    <button id="btnMais">+1</button>
+    <button id="btnMenos">-1</button>
+
+    <script>
+        const valor = document.getElementById('valor');
+        const btnMais = document.getElementById('btnMais');
+        const btnMenos = document.getElementById('btnMenos');
+
+        let contador = 0;
+
+        btnMais.addEventListener('click', function() {
+            contador++;
+            valor.textContent = contador;
+        });
+
+        btnMenos.addEventListener('click', function() {
+            contador--;
+            valor.textContent = contador;
+        });
+    </script>
 </body>
 </html>
