@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterador de Conteúdo</title>
+</head>
+<body>
+    <h1>Alterador de Conteúdo</h1>
+
+    <p id="p1">Texto do parágrafo 1</p>
+    <p id="p2">Texto do parágrafo 2</p>
+    <p id="p3">Texto do parágrafo 3</p>
+
+    <button id="btn1">Alterar P1</button>
+    <button id="btn2">Alterar P2</button>
+    <button id="btn3">Alterar P3</button>
+
+    <script>
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+
+        btn1.addEventListener('click', function() {
+            p1.textContent = 'Novo texto do parágrafo 1!';
+        });
+
+        btn2.addEventListener('click', function() {
+            p2.textContent = 'Novo texto do parágrafo 2!';
+        });
+
+        btn3.addEventListener('click', function() {
+            p3.textContent = 'Novo texto do parágrafo 3!';
+        });
+    </script>
+</body>
+</html>
