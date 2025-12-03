@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Galeria</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #imagemPrincipal {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border: 3px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .miniaturas img {
+            width: 90px;
+            height: 70px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+
+        .miniaturas img:hover {
+            border-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeria dos molestadores</h1>
+    
+    <img id="imagemPrincipal" src="./aseets/img/molestador1.webp" alt="Imagem Principal">
+    
+    <div class="miniaturas">
+        <img src="./aseets/img/molestador1.webp" alt="" onclick="trocarImagem(this)">
+        <img src="./aseets/img/molestador2.webp" alt="" onclick="trocarImagem(this)">
+        <img src="./aseets/img/molestador3.webp" alt="" onclick="trocarImagem(this)">
+        <img src="./aseets/img/molestador4.webp" alt="" onclick="trocarImagem(this)">
+    </div>
+
+    <script>
+        function trocarImagem(miniatura) {
+            const imagemPrincipal = document.getElementById('imagemPrincipal');
+            imagemPrincipal.src = miniatura.src;
+        }
+    </script>
+</body>
+</html>
