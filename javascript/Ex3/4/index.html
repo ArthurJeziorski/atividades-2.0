@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinâmica</title>
+</head>
+<body>
+    <h1>Lista de Nomes</h1>
+    
+    <input type="text" id="inputNome" placeholder="Digite um nome">
+    <button onclick="adicionarNome()">Adicionar</button>
+    <button onclick="limparLista()">Limpar lista</button>
+    
+    <ul id="lista"></ul>
+
+    <script>
+        function adicionarNome() {
+            const input = document.getElementById('inputNome');
+            const nome = input.value;
+            
+            if (nome.trim() !== '') {
+                const lista = document.getElementById('lista');
+                const novoItem = document.createElement('li');
+                novoItem.textContent = nome;
+                lista.appendChild(novoItem);
+                
+                input.value = '';
+            }
+        }
+
+        function limparLista() {
+            const lista = document.getElementById('lista');
+            lista.innerHTML = '';
+        }
+
+        document.getElementById('inputNome').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                adicionarNome();
+            }
+        });
+    </script>
+</body>
+</html>
