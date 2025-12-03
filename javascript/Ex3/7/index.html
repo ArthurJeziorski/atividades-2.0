@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dropdown</title>
+    <style>
+          #menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 2px solid black;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+            min-width: 150px;
+        }
+
+        #menu.aberto {
+            display: block;
+        }
+
+        #menu li {
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu abre e fexa</h1>
+    
+    <button onclick="toggleMenu()">Menu</button>
+    
+    <ul id="menu">
+        <li>Free Fire</li>
+        <li>Roblox</li>
+        <li>GTA V</li>
+        <li>Call Of Duty</li>
+    </ul>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('aberto');
+        }
+    </script>
+</body>
+</html>
