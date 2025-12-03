@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Formulário</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        input, textarea {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+
+        #mensagem {
+            margin-top: 15px;
+            padding: 10px;
+            display: none;
+        }
+
+        .erro {
+            background-color: #ff8787;
+            color: red;
+            border: 1px solid red;
+        }
+
+        .sucesso {
+            background-color: #ccffcc;
+            color: green;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario</h1>
+    
+    <form>
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="mensagemTexto" placeholder="Mensagem" rows="4"></textarea>
+        <button type="button" onclick="validarFormulario()">Enviar</button>
+    </form>
+
+    <div id="mensagem"></div>
+
+    <script>
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagemTexto = document.getElementById('mensagemTexto').value;
+            const divMensagem = document.getElementById('mensagem');
+
+            if (nome === '' || email === '' || mensagemTexto === '') {
+                divMensagem.textContent = 'Por favor, preencha todos os campos!';
+                divMensagem.className = 'erro';
+                divMensagem.style.display = 'block';
+            } else {
+                divMensagem.textContent = 'Formulário enviado com sucesso!';
+                divMensagem.className = 'sucesso';
+                divMensagem.style.display = 'block';
+                
+                document.getElementById('nome').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('mensagemTexto').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
