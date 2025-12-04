@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="busca" placeholder="Buscar nome...">
+
+<ul id="lista">
+  <li>Arthur Rei do capa</li>
+  <li>Yan Rei da 2x</li>
+  <li>Samuel Poc</li>
+  <li>Renato Beja Guela</li>
+  <li>Ams Peida Moiado</li>
+</ul>
+
+<script>
+    const input = document.getElementById("busca");
+const itens = document.querySelectorAll("#lista li");
+
+input.addEventListener("input", () => {
+  const filtro = input.value.toLowerCase();
+
+  itens.forEach(item => {
+    const texto = item.textContent.toLowerCase();
+
+    if (texto.includes(filtro)) {
+      item.style.display = "block"; 
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
