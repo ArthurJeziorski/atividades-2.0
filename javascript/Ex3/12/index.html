@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Remoção seletiva de Elementos</h1>
+
+    <button id="add">Adicionar item</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+    const lista = document.getElementById("lista");
+const botaoAdd = document.getElementById("add");
+let contador = 1;
+
+
+botaoAdd.addEventListener("click", () => {
+  const li = document.createElement("li");
+  li.innerHTML = `Item ${contador} <button class="remover">Remover</button>`;
+  lista.appendChild(li);
+  contador++;
+});
+
+lista.addEventListener("click", (event) => {
+  if (event.target.classList.contains("remover")) {
+    event.target.parentNode.remove();
+  }
+});
+    </script>
+  </body>
+</html>
