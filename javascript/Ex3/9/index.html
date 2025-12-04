@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Dinâmica</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        td {
+            border: 4px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela Dinâmica</h1>
+    
+    <button onclick="adicionarLinha()">Adicionar linha</button>
+    <button onclick="removerLinha()">Remover última linha</button>
+
+    <table id="tabela">
+        <tr>
+            <td>Linha 1</td>
+            <td>Coluna</td>
+        </tr>
+    </table>
+
+    <script>
+        let contador = 2;
+
+        function adicionarLinha() {
+            const tabela = document.getElementById('tabela');
+            const novaLinha = tabela.insertRow();
+            
+            const celula1 = novaLinha.insertCell(0);
+            const celula = novaLinha.insertCell(1);
+            
+            celula1.textContent = 'Linha ' + contador;
+            celula.textContent = 'Coluna';
+            
+            contador++;
+        }
+
+        function removerLinha() {
+            const tabela = document.getElementById('tabela');
+            
+            if (tabela.rows.length > 1) {
+                tabela.deleteRow(tabela.rows.length - 1);
+                contador--;
+            }
+        }
+    </script>
+</body>
+</html>
