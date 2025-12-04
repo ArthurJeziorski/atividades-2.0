@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Distribuição de Pontos</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+
+    .atributo {
+      margin-bottom: 15px;
+    }
+
+    .atributo span {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    button {
+      margin: 0 5px;
+    }
+
+    #restantes {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #555;
+      display: none;
+    }
+
+    .erro {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sistema de Distribuição de Pontos</h1>
+
+  <div class="atributo">
+    <span>Força:</span>
+    <button class="menos" data-attr="forca">-</button>
+    <span id="forca">0</span>
+    <button class="mais" data-attr="forca">+</button>
+  </div>
+
+  <div class="atributo">
+    <span>Agilidade:</span>
+    <button class="menos" data-attr="agi">-</button>
+    <span id="agi">0</span>
+    <button class="mais" data-attr="agi">+</button>
+  </div>
+
+  <div class="atributo">
+    <span>Inteligência:</span>
+    <button class="menos" data-attr="int">-</button>
+    <span id="int">0</span>
+    <button class="mais" data-attr="int">+</button>
+  </div>
+
+  <p id="restantes">Pontos restantes: <span id="pts">10</span></p>
+
+  <button id="confirmar">Confirmar Distribuição</button>
+
+  <div id="resultado"></div>
+
+<script>
+    const pontosRestantes = document.getElementById("pts");
+const botoesMais = document.querySelectorAll(".mais");
+const botoesMenos = document.querySelectorAll(".menos");
+const confirmar = document.getElementById("confirmar");
+const resultado = document.getElementById("resultado");
+
+let pontos = 10;
+
+function atualizarTela() {
+  pontosRestantes.textContent = pontos;
+
+  if (pontos === 0) {
+    pontosRestantes.style.color = "red";
+  } else {
+    pontosRestantes.style.color = "black";
+  }
+}
+
+atualizarTela();
+
+botoesMais.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (pontos === 0) return;
+
+    const atributo = btn.dataset.attr;
+    const span = document.getElementById(atributo);
+
+    span.textContent = Number(span.textContent) + 1;
+    pontos--;
+
+    atualizarTela();
+  });
+});
+
+botoesMenos.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const atributo = btn.dataset.attr;
+    const span = document.getElementById(atributo);
+
+    if (Number(span.textContent) === 0) return;
+
+    span.textContent = Number(span.textContent) - 1;
+    pontos++;
+
+    atualizarTela();
+  });
+});
+
+confirmar.addEventListener("click", () => {
+  resultado.style.display = "none";
+
+  if (pontos > 0) {
+    alert("Ainda restam pontos para distribuir!");
+    return;
+  }
+
+  const forca = document.getElementById("forca").textContent;
+  const agi = document.getElementById("agi").textContent;
+  const int = document.getElementById("int").textContent;
+
+  resultado.innerHTML = `
+    <h3>Distribuição Final</h3>
+    <p>Força: ${forca}</p>
+    <p>Agilidade: ${agi}</p>
+    <p>Inteligência: ${int}</p>
+  `;
+
+  resultado.style.display = "block";
+});
+</script>
+</body>
+</html>
