@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h2>Sistema de registro de Cliques</h2>
+
+    <button id="registrar">Registrar Clique</button>
+    <button id="limpar">limpar histórico</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        const btnRegistrar = document.getElementById("registrar");
+const btnLimpar = document.getElementById("limpar");
+const lista = document.getElementById("lista");
+
+btnRegistrar.addEventListener("click", () => {
+  const li = document.createElement("li");
+
+  const agora = new Date();
+  const data = agora.toLocaleDateString();
+  const hora = agora.toLocaleTimeString();
+
+  li.textContent = `Clique registrado — ${data} ${hora}`;
+  lista.appendChild(li);
+});
+
+btnLimpar.addEventListener("click", () => {
+  lista.innerHTML = "";
+});
+    </script>
+  </body>
+</html>
